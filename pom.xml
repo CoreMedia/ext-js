@@ -9,7 +9,7 @@
     <relativePath />
   </parent>
 
-  <groupId>com.sencha</groupId>
+  <groupId>net.jangaroo.com.sencha</groupId>
   <artifactId>ext-js</artifactId>
   <name>ext-js</name>
   <version>3.4.0-SNAPSHOT</version>
