@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+    <relativePath />
+  </parent>
+
+  <groupId>com.sencha</groupId>
+  <artifactId>ext-js</artifactId>
+  <name>ext-js</name>
+  <version>3.4.0-SNAPSHOT</version>
+
+  <description>Maven-packaged version of Ext JS 3.4.0, provided by Jangaroo</description>
+  <url>http://www.sencha.com/products/extjs</url>
+
+  <organization>
+    <name>Sencha</name>
+    <url>http://www.sencha.com/</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <url>http://www.sencha.com/products/extjs/license/</url>
+    </license>
+  </licenses>
+
+  <scm>
+    <url>http://github.com/CoreMedia/ext-js</url>
+    <connection>scm:git:git://github.com/CoreMedia/ext-js.git</connection>
+    <developerConnection>scm:git:git@github.com:CoreMedia/ext-js.git</developerConnection>
+  </scm>
+
+  <properties>
+    <extjs.version>3.4.0</extjs.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+
+  <prerequisites>
+    <maven>3.0.3</maven>
+  </prerequisites>
+
+  <profiles>
+    <profile>
+      <id>release-signing</id>
+      <activation>
+        <property>
+          <name>performRelease</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.1</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles> 
+
+  <build>
+    <resources>
+      <resource>
+        <directory>target/unzip/ext-${extjs.version}</directory>
+        <targetPath>META-INF/resources/ext-js</targetPath>
+        <includes>
+          <include>*.js</include>
+          <include>adapter/**</include>
+          <include>src/locale/**</include>
+          <include>pkgs/**</include>
+          <include>resources/**</include>
+          <include>src/debug.js</include>
+          <include>src/error-checking.js</include>
+        </includes>
+        <excludes>
+          <!--<exclude>**/*-debug*</exclude>-->
+          <exclude>**/*.txt</exclude>
+          <exclude>**/*.html</exclude>
+          <exclude>**/*.scss</exclude>
+          <exclude>**/*.rb</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <directory>target/unzip/ext-${extjs.version}</directory>
+        <includes>
+          <include>*.txt</include>
+          <include>*.html</include>
+          <include>welcome/**</include>
+        </includes>
+      </resource>
+    </resources>
+
+    <sourceDirectory>target/unzip/ext-${extjs.version}/src</sourceDirectory>
+
+    <plugins>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>1.7</version>
+          <executions>
+              <execution>
+                  <phase>generate-resources</phase>
+                  <configuration>
+                      <tasks>
+                          <unzip src="src/main/original/ext-${extjs.version}.zip" dest="target/unzip" />
+                      </tasks>
+                  </configuration>
+                  <goals>
+                      <goal>run</goal>
+                  </goals>
+              </execution>
+          </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.1.2</version>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <excludeResources>true</excludeResources>
+        </configuration>
+      </plugin>
+    </plugins>  
+
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-ssh</artifactId>
+        <version>1.0-beta-6</version>
+      </extension>
+    </extensions>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.5</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.3.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.4.3</version>
+          <configuration>
+            <includeEmptyDirs>true</includeEmptyDirs>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>2.4.1</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+  </build>
+
+</project>
