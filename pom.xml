@@ -12,7 +12,7 @@
   <groupId>net.jangaroo.com.sencha</groupId>
   <artifactId>ext-js</artifactId>
   <name>ext-js</name>
-  <version>3.4.1-SNAPSHOT</version>
+  <version>3.4.0-1-SNAPSHOT</version>
 
   <description>Maven-packaged version of Ext JS 3.4.0, provided by Jangaroo</description>
   <url>http://www.sencha.com/products/extjs</url>
@@ -78,7 +78,7 @@
     <resources>
       <resource>
         <directory>target/unzip/ext-${extjs.version}</directory>
-        <targetPath>META-INF/resources/ext-js</targetPath>
+        <targetPath>META-INF/resources/public/com/sencha/${project.artifactId}/${project.version}</targetPath>
         <includes>
           <include>*.js</include>
           <include>adapter/**</include>
@@ -95,6 +95,11 @@
           <exclude>**/*.scss</exclude>
           <exclude>**/*.rb</exclude>
         </excludes>
+      </resource>
+      <resource>
+        <directory>target/tmp</directory>
+        <filtering>true</filtering>
+        <targetPath>META-INF/resources/public/com/sencha/${project.artifactId}</targetPath>
       </resource>
       <resource>
         <directory>target/unzip/ext-${extjs.version}</directory>
@@ -116,14 +121,15 @@
           <executions>
               <execution>
                   <phase>generate-resources</phase>
-                  <configuration>
-                      <tasks>
-                          <unzip src="src/main/original/ext-${extjs.version}.zip" dest="target/unzip" />
-                      </tasks>
-                  </configuration>
                   <goals>
                       <goal>run</goal>
                   </goals>
+                  <configuration>
+                      <tasks>
+                          <unzip src="src/main/original/ext-${extjs.version}.zip" dest="target/unzip" />
+                          <copy file="src/main/amd/amd.js" toFile="target/tmp/${project.version}.js" />
+                      </tasks>
+                  </configuration>
               </execution>
           </executions>
       </plugin>
