@@ -12,9 +12,9 @@
   <groupId>net.jangaroo.com.sencha</groupId>
   <artifactId>ext-js</artifactId>
   <name>ext-js</name>
-  <version>3.4.1-SNAPSHOT</version>
+  <version>3.4.1.1-SNAPSHOT</version>
 
-  <description>Maven-packaged version of Ext JS 3.4.0, provided by Jangaroo</description>
+  <description>Maven-packaged version of Ext JS 3.4.1.1, provided by Jangaroo</description>
   <url>http://www.sencha.com/products/extjs</url>
 
   <organization>
@@ -35,7 +35,8 @@
   </scm>
 
   <properties>
-    <extjs.version>3.4.0</extjs.version>
+    <extjs.version>3.4.1</extjs.version>
+    <extjs.version.patch>3.4.1.1</extjs.version.patch>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
@@ -118,7 +119,7 @@
                   <phase>generate-resources</phase>
                   <configuration>
                       <tasks>
-                          <unzip src="src/main/original/ext-${extjs.version}.zip" dest="target/unzip" />
+                          <unzip src="src/main/original/ext-${extjs.version.patch}.zip" dest="target/unzip" />
                       </tasks>
                   </configuration>
                   <goals>
