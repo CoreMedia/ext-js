@@ -12,7 +12,7 @@
   <groupId>net.jangaroo.com.sencha</groupId>
   <artifactId>ext-js</artifactId>
   <name>ext-js</name>
-  <version>3.4.1.1-SNAPSHOT</version>
+  <version>3.4.1.1</version>
 
   <description>Maven-packaged version of Ext JS 3.4.1.1, provided by Jangaroo</description>
   <url>http://www.sencha.com/products/extjs</url>
