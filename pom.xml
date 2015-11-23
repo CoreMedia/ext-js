@@ -12,9 +12,9 @@
   <groupId>net.jangaroo.com.sencha</groupId>
   <artifactId>ext-js</artifactId>
   <name>ext-js</name>
-  <version>4.2.0-1-SNAPSHOT</version>
+  <version>6.0.1-1-SNAPSHOT</version>
 
-  <description>Maven-packaged version of Ext JS 4.2.0, build 663, provided by Jangaroo.</description>
+  <description>Maven-packaged version of Ext JS 6.0.1, build 250, provided by Jangaroo.</description>
   <url>http://www.sencha.com/products/extjs</url>
 
   <organization>
@@ -35,8 +35,8 @@
   </scm>
 
   <properties>
-    <extjs.version>4.2.0</extjs.version>
-    <extjs.build>663</extjs.build>
+    <extjs.version>6.0.1</extjs.version>
+    <extjs.build>250</extjs.build>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
@@ -78,7 +78,7 @@
   <build>
     <resources>
       <resource>
-        <directory>target/unzip/ext-${extjs.version}.${extjs.build}</directory>
+        <directory>target/unzip/build</directory>
         <targetPath>META-INF/resources/${project.artifactId}/${extjs.version}</targetPath>
         <includes>
           <include>*.js</include>
@@ -92,10 +92,11 @@
           <exclude>**/*.html</exclude>
           <exclude>**/*.scss</exclude>
           <exclude>**/*.rb</exclude>
+          <exclude>**/*-sandbox*.js</exclude>
         </excludes>
       </resource>
       <resource>
-        <directory>target/unzip/extjs-${extjs.version}</directory>
+        <directory>target/unzip</directory>
         <includes>
           <include>*.txt</include>
           <include>*.html</include>
@@ -109,18 +110,24 @@
     <plugins>
       <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-antrun-plugin</artifactId>
-          <version>1.7</version>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>2.10</version>
           <executions>
               <execution>
                   <phase>generate-resources</phase>
                   <goals>
-                      <goal>run</goal>
+                      <goal>unpack</goal>
                   </goals>
                   <configuration>
-                      <tasks>
-                          <unzip src="src/main/original/ext-${extjs.version}-gpl.zip" dest="target/unzip" />
-                      </tasks>
+                      <artifactItems>
+                          <artifactItem>
+                              <groupId>com.coremedia.sencha</groupId>
+                              <artifactId>ext</artifactId>
+                              <version>6.0.1.250</version>
+                              <type>zip</type>
+                              <outputDirectory>target/unzip</outputDirectory>
+                           </artifactItem>
+                      </artifactItems>
                   </configuration>
               </execution>
           </executions>
