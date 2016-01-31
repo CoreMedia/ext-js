@@ -97,6 +97,14 @@
       </resource>
       <resource>
         <directory>target/unzip</directory>
+        <targetPath>META-INF/resources/${project.artifactId}</targetPath>
+        <includes>
+          <include>classic/classic/src/**</include>
+          <include>packages/core/src/**</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>target/unzip</directory>
         <includes>
           <include>*.txt</include>
           <include>*.html</include>
