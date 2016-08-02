@@ -38,6 +38,7 @@
   <properties>
     <extjs.version>6.0.1</extjs.version>
     <extjs.build>250</extjs.build>
+    <jangaroo.maven-plugin.version>4.0.27</jangaroo.maven-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
@@ -83,6 +84,7 @@
         <targetPath>META-INF/resources/${project.artifactId}/${extjs.version}</targetPath>
         <includes>
           <include>*.js</include>
+          <include>*.js.map</include>
           <include>locale/**</include>
           <include>builds/**</include>
           <include>resources/**</include>
@@ -139,24 +141,43 @@
               </artifactItems>
             </configuration>
           </execution>
+        </executions>
+      </plugin>
+
+
+      <plugin>
+        <groupId>net.jangaroo</groupId>
+        <artifactId>jangaroo-maven-plugin</artifactId>
+        <version>${jangaroo.maven-plugin.version}</version> <!-- explicit version for IDEA! -->
+        <executions>
           <execution>
-            <id>pkg-packaging</id>
+            <id>ext-packaging</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>package-ext</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <finalName>${project.groupId}__${project.artifactId}</finalName>
+          <appendAssemblyId>false</appendAssemblyId>
+          <attach>false</attach>
+          <descriptors>
+            <descriptor>assembly.xml</descriptor>
+          </descriptors>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
             <phase>package</phase>
             <goals>
-              <goal>copy</goal>
+              <goal>single</goal>
             </goals>
-            <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>com.coremedia.sencha</groupId>
-                  <artifactId>ext</artifactId>
-                  <version>${extjs.version}.${extjs.build}</version>
-                  <type>zip</type>
-                  <outputDirectory>${project.build.directory}</outputDirectory>
-                  <destFileName>${project.groupId}__${project.artifactId}.pkg</destFileName>
-                </artifactItem>
-              </artifactItems>
-            </configuration>
           </execution>
         </executions>
       </plugin>
@@ -174,7 +195,7 @@
             <configuration>
               <artifacts>
                 <artifact>
-                  <file>target/${project.groupId}__${project.artifactId}.pkg</file>
+                  <file>target/${project.groupId}__${project.artifactId}.zip</file>
                   <type>pkg</type>
                 </artifact>
               </artifacts>
