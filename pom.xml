@@ -38,7 +38,7 @@
   <properties>
     <extjs.version>6.0.1</extjs.version>
     <extjs.build>250</extjs.build>
-    <jangaroo.maven-plugin.version>4.0.27</jangaroo.maven-plugin.version>
+    <jangaroo.maven-plugin.version>4.0.30</jangaroo.maven-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
