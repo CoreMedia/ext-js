@@ -15,7 +15,7 @@
   <name>ext-js</name>
   <version>6.0.1-SNAPSHOT</version>
 
-  <description>Maven-packaged version of Ext JS 6.0.1, build 250, provided by Jangaroo.</description>
+  <description>Maven-packaged version of Ext JS 6, provided by Jangaroo.</description>
   <url>http://www.sencha.com/products/extjs</url>
 
   <organization>
@@ -133,10 +133,11 @@
               <artifactItems>
                 <artifactItem>
                   <groupId>com.coremedia.sencha</groupId>
-                  <artifactId>ext</artifactId>
+                  <artifactId>ext-js</artifactId>
                   <version>${extjs.version}.${extjs.build}</version>
                   <type>zip</type>
                   <outputDirectory>target/unzip</outputDirectory>
+                  <excludes>*/examples/**,*/build/examples/**</excludes>
                 </artifactItem>
               </artifactItems>
             </configuration>
@@ -156,6 +157,9 @@
             <goals>
               <goal>package-ext</goal>
             </goals>
+            <configuration>
+              <extFrameworkDir>${project.build.directory}/unzip/ext-${extjs.version}</extFrameworkDir>
+            </configuration>
           </execution>
         </executions>
       </plugin>
