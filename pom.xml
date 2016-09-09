@@ -38,7 +38,8 @@
   <properties>
     <extjs.version>6.0.1</extjs.version>
     <extjs.build>250</extjs.build>
-    <jangaroo.maven-plugin.version>4.0.30</jangaroo.maven-plugin.version>
+    <extjs.dir>ext-${extjs.version}</extjs.dir>
+    <jangaroo.maven-plugin.version>4.0-SNAPSHOT</jangaroo.maven-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
@@ -80,7 +81,7 @@
   <build>
     <resources>
       <resource>
-        <directory>target/unzip/build</directory>
+        <directory>target/unzip/${extjs.dir}/build</directory>
         <targetPath>META-INF/resources/${project.artifactId}/${extjs.version}</targetPath>
         <includes>
           <include>*.js</include>
@@ -99,7 +100,7 @@
         </excludes>
       </resource>
       <resource>
-        <directory>target/unzip</directory>
+        <directory>target/unzip/${extjs.dir}</directory>
         <targetPath>META-INF/resources/${project.artifactId}</targetPath>
         <includes>
           <include>classic/classic/src/**</include>
@@ -107,7 +108,7 @@
         </includes>
       </resource>
       <resource>
-        <directory>target/unzip</directory>
+        <directory>target/unzip/${extjs.dir}</directory>
         <includes>
           <include>*.txt</include>
           <include>*.html</include>
@@ -116,7 +117,7 @@
       </resource>
     </resources>
 
-    <sourceDirectory>target/unzip/ext-${extjs.version}.${extjs.build}/src</sourceDirectory>
+    <sourceDirectory>target/unzip/${extjs.dir}/src</sourceDirectory>
 
     <plugins>
       <plugin>
@@ -158,7 +159,7 @@
               <goal>package-ext</goal>
             </goals>
             <configuration>
-              <extFrameworkDir>${project.build.directory}/unzip/ext-${extjs.version}</extFrameworkDir>
+              <extFrameworkDir>${project.build.directory}/unzip/${extjs.dir}</extFrameworkDir>
             </configuration>
           </execution>
         </executions>
