@@ -13,7 +13,7 @@
   <groupId>net.jangaroo.com.sencha</groupId>
   <artifactId>ext-js</artifactId>
   <name>ext-js</name>
-  <version>6.0.1-SNAPSHOT</version>
+  <version>6.2.0-SNAPSHOT</version>
 
   <description>Maven-packaged version of Ext JS 6, provided by Jangaroo.</description>
   <url>http://www.sencha.com/products/extjs</url>
@@ -36,8 +36,8 @@
   </scm>
 
   <properties>
-    <extjs.version>6.0.1</extjs.version>
-    <extjs.build>250</extjs.build>
+    <extjs.version>6.2.0</extjs.version>
+    <extjs.build>981</extjs.build>
     <extjs.dir>ext-${extjs.version}</extjs.dir>
     <jangaroo.maven-plugin.version>4.0.32</jangaroo.maven-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
