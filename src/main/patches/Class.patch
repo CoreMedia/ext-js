@@ -1,0 +1,18 @@
+--- class/Class.js	2015-08-27 16:12:36.000000000 +0200
++++ class/Class.js	2016-10-11 10:08:10.060701937 +0200
+@@ -37,10 +37,10@@
+     // Creates a constructor that has nothing extra in its scope chain.
+     function makeCtor (className) {
+-        function constructor () {
+-            // Opera has some problems returning from a constructor when Dragonfly isn't running. The || null seems to
+-            // be sufficient to stop it misbehaving. Known to be required against 10.53, 11.51 and 11.61.
+-            return this.constructor.apply(this, arguments) || null;
+-        }
++        var nameComponents = className ? className.split(".") : [];
++        var shortName = nameComponents[nameComponents.length - 1] || "constructor";
++        // Opera has some problems returning from a constructor when Dragonfly isn't running. The || null seems to
++        // be sufficient to stop it misbehaving. Known to be required against 10.53, 11.51 and 11.61.
++        var constructor = eval("function " + shortName + "() {return this.constructor.apply(this, arguments) || null;};" + shortName + ";");
+         //<debug>
+         if (className) {
+             constructor.name = className;
