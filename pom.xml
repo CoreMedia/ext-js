@@ -14,6 +14,7 @@
   <artifactId>ext-js</artifactId>
   <name>ext-js</name>
   <version>6.2.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
   <description>Maven-packaged version of Ext JS 6, provided by Jangaroo.</description>
   <url>http://www.sencha.com/products/extjs</url>
@@ -39,6 +40,7 @@
     <extjs.version>6.2.0</extjs.version>
     <extjs.build>981</extjs.build>
     <extjs.dir>ext-${extjs.version}</extjs.dir>
+    <extjs.zip>${project.basedir}/ext-${extjs.version}-gpl.zip</extjs.zip>
     <jangaroo.maven-plugin.version>4.0.32</jangaroo.maven-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -79,73 +81,34 @@
   </profiles>
 
   <build>
-    <resources>
-      <resource>
-        <directory>target/unzip/${extjs.dir}/build</directory>
-        <targetPath>META-INF/resources/${project.artifactId}/${extjs.version}</targetPath>
-        <includes>
-          <include>*.js</include>
-          <include>*.js.map</include>
-          <include>locale/**</include>
-          <include>builds/**</include>
-          <include>resources/**</include>
-        </includes>
-        <excludes>
-          <!--<exclude>**/*-debug*</exclude>-->
-          <exclude>**/*.txt</exclude>
-          <exclude>**/*.html</exclude>
-          <exclude>**/*.scss</exclude>
-          <exclude>**/*.rb</exclude>
-          <exclude>**/*-sandbox*.js</exclude>
-        </excludes>
-      </resource>
-      <resource>
-        <directory>target/unzip/${extjs.dir}</directory>
-        <targetPath>META-INF/resources/${project.artifactId}</targetPath>
-        <includes>
-          <include>classic/classic/src/**</include>
-          <include>packages/core/src/**</include>
-        </includes>
-      </resource>
-      <resource>
-        <directory>target/unzip/${extjs.dir}</directory>
-        <includes>
-          <include>*.txt</include>
-          <include>*.html</include>
-          <include>welcome/**</include>
-        </includes>
-      </resource>
-    </resources>
-
-    <sourceDirectory>target/unzip/${extjs.dir}/src</sourceDirectory>
-
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.10</version>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.8</version>
         <executions>
           <execution>
             <phase>generate-resources</phase>
             <goals>
-              <goal>unpack</goal>
+              <goal>run</goal>
             </goals>
             <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>com.coremedia.sencha</groupId>
-                  <artifactId>ext-js</artifactId>
-                  <version>${extjs.version}.${extjs.build}</version>
-                  <type>zip</type>
-                  <outputDirectory>target/unzip</outputDirectory>
-                  <excludes>*/examples/**,*/build/examples/**</excludes>
-                </artifactItem>
-              </artifactItems>
+              <tasks>
+                <echo message="unzipping file" />
+                <unzip src="${extjs.zip}" dest="target/unzip">
+                  <patternset>
+                    <exclude name="*/examples/**"/>
+                    <exclude name="*/build/examples/**"/>
+                    <exclude name="*/resources/**"/>
+                    <exclude name="*/sass/**"/>
+                    <exclude name="*/templates/**"/>
+                    <exclude name="*/welcome/**"/>
+                  </patternset>
+                </unzip>
+              </tasks>
             </configuration>
           </execution>
         </executions>
       </plugin>
-
 
       <plugin>
         <groupId>net.jangaroo</groupId>
@@ -207,22 +170,6 @@
             </configuration>
           </execution>
         </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>2.1.2</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>jar-no-fork</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <excludeResources>true</excludeResources>
-        </configuration>
       </plugin>
     </plugins>
 
