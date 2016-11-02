@@ -10,9 +10,8 @@
     <relativePath/>
   </parent>
 
-  <groupId>net.jangaroo.com.sencha</groupId>
-  <artifactId>ext-js</artifactId>
-  <name>ext-js</name>
+  <groupId>${ext-js.groupId}</groupId>
+  <artifactId>ext-js${ext-js.pkg.artifactId.suffix}</artifactId>
   <version>6.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -37,10 +36,13 @@
   </scm>
 
   <properties>
+    <ext-js.groupId>net.jangaroo.com.sencha</ext-js.groupId>
+    <ext-js.artifactId.suffix>-gpl</ext-js.artifactId.suffix>
+    <ext-js.artifactId>ext-js${ext-js.artifactId.suffix}</ext-js.artifactId>
+    <ext-js.pkg.artifactId.suffix>-pkg${ext-js.artifactId.suffix}</ext-js.pkg.artifactId.suffix>
     <extjs.version>6.2.0</extjs.version>
     <extjs.build>981</extjs.build>
     <extjs.dir>ext-${extjs.version}</extjs.dir>
-    <extjs.zip>${project.basedir}/ext-${extjs.version}-gpl.zip</extjs.zip>
     <jangaroo.maven-plugin.version>4.0.32</jangaroo.maven-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -83,28 +85,26 @@
   <build>
     <plugins>
       <plugin>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.8</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.10</version>
         <executions>
           <execution>
             <phase>generate-resources</phase>
             <goals>
-              <goal>run</goal>
+              <goal>unpack</goal>
             </goals>
             <configuration>
-              <tasks>
-                <echo message="unzipping file" />
-                <unzip src="${extjs.zip}" dest="target/unzip">
-                  <patternset>
-                    <exclude name="*/examples/**"/>
-                    <exclude name="*/build/examples/**"/>
-                    <exclude name="*/resources/**"/>
-                    <exclude name="*/sass/**"/>
-                    <exclude name="*/templates/**"/>
-                    <exclude name="*/welcome/**"/>
-                  </patternset>
-                </unzip>
-              </tasks>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>${project.groupId}</groupId>
+                  <artifactId>${ext-js.artifactId}</artifactId>
+                  <version>${extjs.version}.${extjs.build}</version>
+                  <type>zip</type>
+                  <outputDirectory>target/unzip</outputDirectory>
+                  <excludes>*/examples/**,*/build/examples/**,*/resources/**,*/sass/**,*/templates/**,*/welcome/**</excludes>
+                </artifactItem>
+              </artifactItems>
             </configuration>
           </execution>
         </executions>
