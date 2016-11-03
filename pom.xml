@@ -36,14 +36,14 @@
   </scm>
 
   <properties>
-    <ext-js.groupId>net.jangaroo.com.sencha</ext-js.groupId>
-    <ext-js.artifactId.suffix>-gpl</ext-js.artifactId.suffix>
+    <ext-js.groupId>com.coremedia.sencha</ext-js.groupId>
+    <ext-js.artifactId.suffix></ext-js.artifactId.suffix>
     <ext-js.artifactId>ext-js${ext-js.artifactId.suffix}</ext-js.artifactId>
     <ext-js.pkg.artifactId.suffix>-pkg${ext-js.artifactId.suffix}</ext-js.pkg.artifactId.suffix>
     <extjs.version>6.2.0</extjs.version>
     <extjs.build>981</extjs.build>
     <extjs.dir>ext-${extjs.version}</extjs.dir>
-    <jangaroo.maven-plugin.version>4.0.32</jangaroo.maven-plugin.version>
+    <jangaroo.maven-plugin.version>4.0-SNAPSHOT</jangaroo.maven-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
