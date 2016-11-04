@@ -102,7 +102,7 @@
                   <version>${extjs.version}.${extjs.build}</version>
                   <type>zip</type>
                   <outputDirectory>target/unzip</outputDirectory>
-                  <excludes>*/examples/**,*/build/examples/**,*/resources/**,*/sass/**,*/templates/**,*/welcome/**</excludes>
+                  <excludes>*/examples/**,*/build/examples/**,*/templates/**,*/welcome/**</excludes>
                 </artifactItem>
               </artifactItems>
             </configuration>
