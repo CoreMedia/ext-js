@@ -11,7 +11,7 @@
   </parent>
 
   <groupId>${ext-js.groupId}</groupId>
-  <artifactId>ext-js${ext-js.pkg.artifactId.suffix}</artifactId>
+  <artifactId>ext-js-pkg-gpl</artifactId>
   <version>6.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
