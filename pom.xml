@@ -10,7 +10,7 @@
     <relativePath/>
   </parent>
 
-  <groupId>${ext-js.groupId}</groupId>
+  <groupId>net.jangaroo.com.sencha</groupId>
   <artifactId>ext-js-pkg-gpl</artifactId>
   <version>6.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
