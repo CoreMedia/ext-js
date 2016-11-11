@@ -3,15 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
-    <relativePath/>
-  </parent>
-
-  <groupId>${ext-js.groupId}</groupId>
-  <artifactId>ext-js${ext-js.pkg.artifactId.suffix}</artifactId>
+  <groupId>com.coremedia.sencha</groupId>
+  <artifactId>ext-js-pkg</artifactId>
   <version>6.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -36,10 +29,7 @@
   </scm>
 
   <properties>
-    <ext-js.groupId>com.coremedia.sencha</ext-js.groupId>
-    <ext-js.artifactId.suffix></ext-js.artifactId.suffix>
-    <ext-js.artifactId>ext-js${ext-js.artifactId.suffix}</ext-js.artifactId>
-    <ext-js.pkg.artifactId.suffix>-pkg${ext-js.artifactId.suffix}</ext-js.pkg.artifactId.suffix>
+    <ext-js.artifactId>ext-js</ext-js.artifactId>
     <extjs.version>6.2.0</extjs.version>
     <extjs.build>981</extjs.build>
     <extjs.dir>ext-${extjs.version}</extjs.dir>
