@@ -36,10 +36,7 @@
   </scm>
 
   <properties>
-    <ext-js.groupId>net.jangaroo.com.sencha</ext-js.groupId>
-    <ext-js.artifactId.suffix>-gpl</ext-js.artifactId.suffix>
-    <ext-js.artifactId>ext-js${ext-js.artifactId.suffix}</ext-js.artifactId>
-    <ext-js.pkg.artifactId.suffix>-pkg${ext-js.artifactId.suffix}</ext-js.pkg.artifactId.suffix>
+    <ext-js.artifactId>ext-js-gpl</ext-js.artifactId>
     <extjs.version>6.2.0</extjs.version>
     <extjs.build>981</extjs.build>
     <extjs.dir>ext-${extjs.version}</extjs.dir>
