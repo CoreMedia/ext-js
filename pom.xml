@@ -28,6 +28,17 @@
     <developerConnection>scm:git:git@github.com:CoreMedia/ext-js.git</developerConnection>
   </scm>
 
+  <distributionManagement>
+    <repository>
+      <id>coremedia.staging</id>
+      <url>https://repository.coremedia.com/nexus/service/local/staging/deploy/maven2</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <url>https://repository-build.coremedia.com/nexus/content/repositories/snapshots.long.retention/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <properties>
     <ext-js.artifactId>ext-js</ext-js.artifactId>
     <extjs.version>6.2.0</extjs.version>
