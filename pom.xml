@@ -30,8 +30,8 @@
 
   <distributionManagement>
     <repository>
-      <id>pre-releases</id>
-      <url>https://repository.coremedia.com/nexus/content/repositories/prereleases</url>
+      <id>coremedia.external.releases</id>
+      <url>${nexus.base.url}service/local/staging/deploy/maven2</url>
     </repository>
   </distributionManagement>
 
