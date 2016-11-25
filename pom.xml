@@ -30,13 +30,9 @@
 
   <distributionManagement>
     <repository>
-      <id>coremedia.staging</id>
-      <url>https://repository.coremedia.com/nexus/service/local/staging/deploy/maven2</url>
+      <id>pre-releases</id>
+      <url>https://repository.coremedia.com/nexus/content/repositories/prereleases</url>
     </repository>
-    <snapshotRepository>
-      <id>snapshots</id>
-      <url>https://repository-build.coremedia.com/nexus/content/repositories/snapshots.long.retention/</url>
-    </snapshotRepository>
   </distributionManagement>
 
   <properties>
