@@ -173,6 +173,7 @@
         <configuration>
           <nexusUrl>https://repository.coremedia.com/nexus/</nexusUrl>
           <serverId>coremedia.external.releases</serverId>
+                 <autoReleaseAfterClose>true</autoReleaseAfterClose>       
         </configuration>
       </plugin>       
     </plugins>
