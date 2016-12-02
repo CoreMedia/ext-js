@@ -5,7 +5,7 @@
 
   <groupId>com.coremedia.sencha</groupId>
   <artifactId>ext-js-pkg</artifactId>
-  <version>6.2.0-SNAPSHOT</version>
+  <version>6.2.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <description>Maven-packaged version of Ext JS 6, provided by Jangaroo.</description>
@@ -37,10 +37,10 @@
 
   <properties>
     <ext-js.artifactId>ext-js</ext-js.artifactId>
-    <extjs.version>6.2.0</extjs.version>
-    <extjs.build>981</extjs.build>
+    <extjs.version>6.2.1</extjs.version>
+    <extjs.build>167</extjs.build>
     <extjs.dir>ext-${extjs.version}</extjs.dir>
-    <jangaroo.maven-plugin.version>4.0.37</jangaroo.maven-plugin.version>
+    <jangaroo.maven-plugin.version>4.0.39</jangaroo.maven-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
