@@ -11,8 +11,8 @@
   </parent>
 
   <groupId>net.jangaroo.com.sencha</groupId>
-  <artifactId>ext-js-pkg-gpl</artifactId>
-  <version>6.2.0-SNAPSHOT</version>
+  <artifactId>ext-js-pkg</artifactId>
+  <version>6.2.0-gpl-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <description>Maven-packaged version of Ext JS 6, provided by Jangaroo.</description>
