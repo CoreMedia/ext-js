@@ -40,7 +40,7 @@
     <extjs.version>6.2.1</extjs.version>
     <extjs.build>167</extjs.build>
     <extjs.dir>ext-${extjs.version}</extjs.dir>
-    <jangaroo.maven-plugin.version>4.0.39</jangaroo.maven-plugin.version>
+    <jangaroo.maven-plugin.version>4.0.48-SNAPSHOT</jangaroo.maven-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
@@ -158,7 +158,7 @@
               <artifacts>
                 <artifact>
                   <file>target/${project.groupId}__${project.artifactId}.zip</file>
-                  <type>pkg</type>
+                  <type>jar</type>
                 </artifact>
               </artifacts>
             </configuration>
@@ -173,9 +173,9 @@
         <configuration>
           <nexusUrl>https://repository.coremedia.com/nexus/</nexusUrl>
           <serverId>coremedia.external.releases</serverId>
-                 <autoReleaseAfterClose>true</autoReleaseAfterClose>       
+                 <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
-      </plugin>       
+      </plugin>
     </plugins>
 
     <extensions>
