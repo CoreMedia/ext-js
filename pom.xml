@@ -12,7 +12,7 @@
 
   <groupId>net.jangaroo.com.sencha</groupId>
   <artifactId>ext-js-pkg</artifactId>
-  <version>6.2.0-gpl-SNAPSHOT</version>
+  <version>6.2.0-gpl-1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <description>Maven-packaged version of Ext JS 6, provided by Jangaroo.</description>
@@ -40,7 +40,7 @@
     <extjs.version>6.2.0</extjs.version>
     <extjs.build>981</extjs.build>
     <extjs.dir>ext-${extjs.version}</extjs.dir>
-    <jangaroo.maven-plugin.version>4.0.37</jangaroo.maven-plugin.version>
+    <jangaroo.maven-plugin.version>4.0.48-SNAPSHOT</jangaroo.maven-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
@@ -158,7 +158,7 @@
               <artifacts>
                 <artifact>
                   <file>target/${project.groupId}__${project.artifactId}.zip</file>
-                  <type>pkg</type>
+                  <type>jar</type>
                 </artifact>
               </artifacts>
             </configuration>

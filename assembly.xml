@@ -9,7 +9,7 @@
   <fileSets>
     <fileSet>
       <directory>target/unzip/ext-${extjs.version}</directory>
-      <outputDirectory></outputDirectory>
+      <outputDirectory>META-INF/pkg/</outputDirectory>
     </fileSet>
   </fileSets>
 </assembly>
