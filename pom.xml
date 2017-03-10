@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.coremedia.sencha</groupId>
   <artifactId>ext-js-pkg</artifactId>
-  <version>6.2.1-1-SNAPSHOT</version>
+  <version>6.2.1-1</version>
   <packaging>pom</packaging>
 
   <description>Maven-packaged version of Ext JS 6, provided by Jangaroo.</description>
@@ -26,6 +25,7 @@
     <url>http://github.com/CoreMedia/ext-js</url>
     <connection>scm:git:git://github.com/CoreMedia/ext-js.git</connection>
     <developerConnection>scm:git:git@github.com:CoreMedia/ext-js.git</developerConnection>
+    <tag>ext-js-pkg-6.2.1-1</tag>
   </scm>
 
   <distributionManagement>
