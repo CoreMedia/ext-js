@@ -52,12 +52,6 @@
   <profiles>
     <profile>
       <id>release-signing</id>
-      <activation>
-        <property>
-          <name>performRelease</name>
-          <value>true</value>
-        </property>
-      </activation>
       <build>
         <plugins>
           <plugin>
