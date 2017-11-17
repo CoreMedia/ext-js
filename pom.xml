@@ -51,6 +51,18 @@
 
   <profiles>
     <profile>
+      <id>external-releases</id>
+      <repositories>
+        <repository>
+          <id>coremedia.external.releases</id>
+          <url>https://repository.coremedia.com/nexus/content/groups/cms/</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+    <profile>
       <id>release-signing</id>
       <activation>
         <property>
