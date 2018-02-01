@@ -36,9 +36,9 @@
   </distributionManagement>
 
   <properties>
-    <ext-js.artifactId>ext-js</ext-js.artifactId>
-    <extjs.version>6.5.2</extjs.version>
-    <extjs.build>463</extjs.build>
+    <ext-js.artifactId>ext</ext-js.artifactId>
+    <extjs.version>6.5.3</extjs.version>
+    <extjs.build>57</extjs.build>
     <extjs.dir>ext-${extjs.version}</extjs.dir>
     <jangaroo.maven-plugin.version>4.0.54</jangaroo.maven-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -111,7 +111,7 @@
               <goal>package-ext</goal>
             </goals>
             <configuration>
-              <extFrameworkDir>${project.build.directory}/unzip/${extjs.dir}</extFrameworkDir>
+              <extFrameworkDir>${project.build.directory}/unzip/${extjs.dir}.${extjs.build}</extFrameworkDir>
             </configuration>
           </execution>
         </executions>
