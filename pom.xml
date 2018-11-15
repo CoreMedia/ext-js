@@ -33,6 +33,10 @@
       <id>coremedia.external.releases</id>
       <url>https://repository.coremedia.com/nexus/service/local/staging/deploy/maven2</url>
     </repository>
+    <snapshotRepository>
+      <id>coremedia.internal.releases</id>
+      <url>https://repository-build.coremedia.com/nexus/content/repositories/snapshots.long.retention/</url>
+    </snapshotRepository>
   </distributionManagement>
 
   <properties>
@@ -167,7 +171,7 @@
         <configuration>
           <nexusUrl>https://repository.coremedia.com/nexus/</nexusUrl>
           <serverId>coremedia.external.releases</serverId>
-                 <autoReleaseAfterClose>true</autoReleaseAfterClose>       
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>       
         </configuration>
       </plugin>       
     </plugins>
