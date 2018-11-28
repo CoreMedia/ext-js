@@ -4,7 +4,7 @@
 
   <groupId>com.coremedia.sencha</groupId>
   <artifactId>ext-js-pkg</artifactId>
-  <version>6.5.3-1-SNAPSHOT</version>
+  <version>6.5.3-1</version>
   <packaging>pom</packaging>
 
   <description>Maven-packaged version of Ext JS 6, provided by Jangaroo.</description>
@@ -25,7 +25,7 @@
     <url>http://github.com/CoreMedia/ext-js</url>
     <connection>scm:git:git://github.com/CoreMedia/ext-js.git</connection>
     <developerConnection>scm:git:git@github.com:CoreMedia/ext-js.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>ext-js-pkg-6.5.3-1</tag>
   </scm>
 
   <distributionManagement>
