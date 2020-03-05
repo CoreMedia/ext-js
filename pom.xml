@@ -4,10 +4,10 @@
 
   <groupId>com.coremedia.sencha</groupId>
   <artifactId>ext-js-pkg</artifactId>
-  <version>6.5.3-2-SNAPSHOT</version>
+  <version>7.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <description>Maven-packaged version of Ext JS 6, provided by Jangaroo.</description>
+  <description>Maven-packaged version of Ext JS 7, provided by Jangaroo.</description>
   <url>http://www.sencha.com/products/extjs</url>
 
   <organization>
@@ -41,8 +41,8 @@
 
   <properties>
     <ext-js.artifactId>ext</ext-js.artifactId>
-    <extjs.version>6.5.3</extjs.version>
-    <extjs.build>57</extjs.build>
+    <extjs.version>7.1.0</extjs.version>
+    <extjs.build>46</extjs.build>
     <extjs.dir>ext-${extjs.version}</extjs.dir>
     <jangaroo.maven-plugin.version>4.0.63</jangaroo.maven-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -92,7 +92,7 @@
                 <artifactItem>
                   <groupId>${project.groupId}</groupId>
                   <artifactId>${ext-js.artifactId}</artifactId>
-                  <version>${extjs.version}.${extjs.build}</version>
+                  <version>${extjs.version}</version>
                   <type>zip</type>
                   <outputDirectory>target/unzip</outputDirectory>
                   <excludes>*/examples/**,*/build/examples/**,*/templates/**,*/welcome/**</excludes>
