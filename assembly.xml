@@ -8,7 +8,7 @@
   <includeBaseDirectory>false</includeBaseDirectory>
   <fileSets>
     <fileSet>
-      <directory>target/unzip/ext-${extjs.version}.${extjs.build}</directory>
+      <directory>target/unzip/ext-${extjs.version}</directory>
       <outputDirectory></outputDirectory>
     </fileSet>
   </fileSets>
